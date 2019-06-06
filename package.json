@@ -3,9 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "lodash-es": "4.17.11",
+    "lodash-move": "1.1.1",
+    "lodash.clamp": "^4.0.3",
+    "lodash.last": "^3.0.0",
+    "lodash.range": "^3.2.0",
+    "lodash.remove": "^4.7.0",
+    "lodash.shuffle": "^4.2.0",
+    "lodash.slice": "^4.2.0",
+    "range": "^0.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-spring": "^8.0.20",
+    "react-use-gesture": "5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

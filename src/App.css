@@ -1,9 +1,6 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  -webkit-animation: App-logo-spin infinite 20s linear;
+          animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
 }
@@ -11,23 +8,215 @@
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.card-list {
+  position: relative;
+  width: 320px;
+  height: 240px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.card-list > div {
+  position: absolute;
+  overflow: visible;
+  pointer-events: auto;
+  -webkit-transform-origin: 50% 50% 0px;
+          transform-origin: 50% 50% 0px;
+  line-height: 96px;
+  width: 100%;
+  height: 100px;
+  border: 1px solid black;
+  background-color: blue;
+  cursor: pointer;
+}
+
+.button {
+  background: red;
+  cursor: pointer;
+}
+
+.player-selector {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+}
+
+.player-selector li {
+  cursor: pointer;
+}
+
+.player-selector li.selected {
+  background: white;
+}
+
+.card1 {
+  -webkit-animation: shuffle 1s cubic-bezier(0.58, -0.25, 0.165, 1.65) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, firstPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
+          animation: shuffle 1s cubic-bezier(0.58, -0.25, 0.165, 1.65) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, firstPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
+}
+
+.card2 {
+  -webkit-animation: shuffle 1s cubic-bezier(0.68, -0.35, 0.265, 1.35) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, secondPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
+          animation: shuffle 1s cubic-bezier(0.68, -0.35, 0.265, 1.35) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, secondPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
+}
+
+.card3 {
+  -webkit-animation: shuffle 1s cubic-bezier(0.88, -0.55, 0.365, 1.25) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, thirdPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
+          animation: shuffle 1s cubic-bezier(0.88, -0.55, 0.365, 1.25) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, thirdPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
+}
+
+.card4 {
+  -webkit-animation: shuffle 1s cubic-bezier(0.48, -0.65, 0.465, 1.25) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, fourthPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
+          animation: shuffle 1s cubic-bezier(0.48, -0.65, 0.465, 1.25) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, fourthPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
+}
+
+@-webkit-keyframes firstPosition {
+  0% {
+    top: 50%;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    top: 10%;
   }
 }
+
+@keyframes firstPosition {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: 10%;
+  }
+}
+
+@-webkit-keyframes secondPosition {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: 25%;
+  }
+}
+
+@keyframes secondPosition {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: 25%;
+  }
+}
+
+@-webkit-keyframes thirdPosition {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: 40%;
+  }
+}
+
+@keyframes thirdPosition {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: 40%;
+  }
+}
+
+@-webkit-keyframes fourthPosition {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: 55%;
+  }
+}
+
+@keyframes fourthPosition {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: 55%;
+  }
+}
+
+@-webkit-keyframes shuffle {
+  100% {
+    top: 50%;
+  }
+}
+
+@keyframes shuffle {
+  100% {
+    top: 50%;
+  }
+}
+
+@-webkit-keyframes shake {
+  10%,
+  90% {
+    -webkit-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    -webkit-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translate3d(-4px, 0, 0);
+            transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    -webkit-transform: translate3d(4px, 0, 0);
+            transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    -webkit-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    -webkit-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translate3d(-4px, 0, 0);
+            transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    -webkit-transform: translate3d(4px, 0, 0);
+            transform: translate3d(4px, 0, 0);
+  }
+}
+/*# sourceMappingURL=App.css.map */
