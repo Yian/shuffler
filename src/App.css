@@ -1,3 +1,14 @@
+body {
+  background: #282c34;
+  font-family: "Dalek";
+  overflow-y: overlay;
+}
+
+@font-face {
+  font-family: "Dalek";
+  src: url("DALEK.ttf") format("truetype");
+}
+
 .App-logo {
   -webkit-animation: App-logo-spin infinite 20s linear;
           animation: App-logo-spin infinite 20s linear;
@@ -6,7 +17,25 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.app-container {
+  width: 100%;
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -25,23 +54,39 @@
   color: white;
 }
 
-.card-list {
-  position: relative;
-  width: 320px;
-  height: 240px;
+.cardlist-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  width: 100%;
 }
 
-.card-list > div {
+.card-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  height: 100vh;
+}
+
+.card-list > img {
   position: absolute;
   overflow: visible;
   pointer-events: auto;
   -webkit-transform-origin: 50% 50% 0px;
           transform-origin: 50% 50% 0px;
   line-height: 96px;
-  width: 100%;
-  height: 100px;
-  border: 1px solid black;
-  background-color: blue;
+  width: 700px;
+  max-width: 100%;
+  height: auto;
   cursor: pointer;
 }
 
@@ -54,169 +99,260 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   list-style: none;
-}
-
-.player-selector li {
   cursor: pointer;
 }
 
-.player-selector li.selected {
-  background: white;
+.player-selector .player-item {
+  padding-right: 15px;
+  cursor: pointer;
 }
 
-.card1 {
-  -webkit-animation: shuffle 1s cubic-bezier(0.58, -0.25, 0.165, 1.65) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, firstPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
-          animation: shuffle 1s cubic-bezier(0.58, -0.25, 0.165, 1.65) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, firstPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
+.player-selector .player-item.selected {
+  color: blue;
 }
 
-.card2 {
-  -webkit-animation: shuffle 1s cubic-bezier(0.68, -0.35, 0.265, 1.35) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, secondPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
-          animation: shuffle 1s cubic-bezier(0.68, -0.35, 0.265, 1.35) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, secondPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
+.player-selector .player-item.disabled {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
-.card3 {
-  -webkit-animation: shuffle 1s cubic-bezier(0.88, -0.55, 0.365, 1.25) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, thirdPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
-          animation: shuffle 1s cubic-bezier(0.88, -0.55, 0.365, 1.25) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, thirdPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
+.hades {
+  position: absolute;
+  display: block;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  width: 700px;
+  max-width: 100%;
+  overflow: visible;
+  pointer-events: auto;
+  -webkit-transform-origin: 50% 50% 0px;
+          transform-origin: 50% 50% 0px;
+  line-height: 96px;
+  height: auto;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
-.card4 {
-  -webkit-animation: shuffle 1s cubic-bezier(0.48, -0.65, 0.465, 1.25) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, fourthPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
-          animation: shuffle 1s cubic-bezier(0.48, -0.65, 0.465, 1.25) 0s both, shake 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s forwards, fourthPosition 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2s;
+.favors {
+  position: absolute;
+  width: 400px;
+  max-width: 80%;
+  height: auto;
 }
 
-@-webkit-keyframes firstPosition {
-  0% {
-    top: 50%;
-  }
-  100% {
-    top: 10%;
-  }
+.hadesContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
+  width: 700px;
+  margin: 0 auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+  font-size: 2rem;
 }
 
-@keyframes firstPosition {
-  0% {
-    top: 50%;
-  }
-  100% {
-    top: 10%;
-  }
-}
-
-@-webkit-keyframes secondPosition {
-  0% {
-    top: 50%;
-  }
-  100% {
-    top: 25%;
-  }
-}
-
-@keyframes secondPosition {
-  0% {
-    top: 50%;
-  }
-  100% {
-    top: 25%;
-  }
-}
-
-@-webkit-keyframes thirdPosition {
-  0% {
-    top: 50%;
-  }
-  100% {
-    top: 40%;
+@media only screen and (max-width: 450px) {
+  .hadesContainer {
+    font-size: 1rem;
   }
 }
 
-@keyframes thirdPosition {
-  0% {
-    top: 50%;
-  }
-  100% {
-    top: 40%;
+.hadesCounterContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.hadesCounter {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  height: 3rem;
+  width: 3rem;
+  background-color: #bbb;
+  border-radius: 50%;
+  opacity: 0.9;
+  background: radial-gradient(circle at 100px 100px, grey, lightgrey);
+}
+
+@media only screen and (max-width: 450px) {
+  .hadesCounter {
+    height: 1.5rem;
+    width: 1.5rem;
   }
 }
 
-@-webkit-keyframes fourthPosition {
-  0% {
-    top: 50%;
-  }
-  100% {
-    top: 55%;
+.favor-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.numbers {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.options {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  font-size: 5rem;
+}
+
+.options .checkbox-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.options .checkbox-container .checkbox-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.options .checkbox-container input[type="checkbox"] {
+  width: 45px;
+  height: 45px;
+  margin-left: 5%;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+  .options {
+    font-size: 5rem;
   }
 }
 
-@keyframes fourthPosition {
-  0% {
-    top: 50%;
-  }
-  100% {
-    top: 55%;
+@media only screen and (max-width: 450px) {
+  .options {
+    font-size: 2.5rem;
   }
 }
 
-@-webkit-keyframes shuffle {
-  100% {
-    top: 50%;
+.active-text {
+  cursor: pointer;
+  font-size: 3rem;
+}
+
+.active-text.disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+@media only screen and (min-width: 451px) and (max-width: 1024px) {
+  .active-text {
+    font-size: 3rem;
   }
 }
 
-@keyframes shuffle {
-  100% {
-    top: 50%;
+@media only screen and (max-width: 450px) {
+  .active-text {
+    font-size: 2rem;
   }
 }
 
-@-webkit-keyframes shake {
-  10%,
-  90% {
-    -webkit-transform: translate3d(-1px, 0, 0);
-            transform: translate3d(-1px, 0, 0);
-  }
-  20%,
-  80% {
-    -webkit-transform: translate3d(2px, 0, 0);
-            transform: translate3d(2px, 0, 0);
-  }
-  30%,
-  50%,
-  70% {
-    -webkit-transform: translate3d(-4px, 0, 0);
-            transform: translate3d(-4px, 0, 0);
-  }
-  40%,
-  60% {
-    -webkit-transform: translate3d(4px, 0, 0);
-            transform: translate3d(4px, 0, 0);
-  }
+.start {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style: none;
+  font-size: 5rem;
+  padding: 0;
 }
 
-@keyframes shake {
-  10%,
-  90% {
-    -webkit-transform: translate3d(-1px, 0, 0);
-            transform: translate3d(-1px, 0, 0);
-  }
-  20%,
-  80% {
-    -webkit-transform: translate3d(2px, 0, 0);
-            transform: translate3d(2px, 0, 0);
-  }
-  30%,
-  50%,
-  70% {
-    -webkit-transform: translate3d(-4px, 0, 0);
-            transform: translate3d(-4px, 0, 0);
-  }
-  40%,
-  60% {
-    -webkit-transform: translate3d(4px, 0, 0);
-            transform: translate3d(4px, 0, 0);
-  }
+.start li {
+  cursor: pointer;
+}
+
+.player-text {
+  margin-right: 10px;
+}
+
+.top-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+  z-index: 999;
+}
+
+.dice-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dice-face {
+  background: black;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  line-height: 1.5rem;
+  color: gold;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  border-radius: 10%;
+  -webkit-box-shadow: inset 0 5px grey, inset 0 -5px grey, inset 5px 0 grey, inset -5px 0 grey;
+          box-shadow: inset 0 5px grey, inset 0 -5px grey, inset 5px 0 grey, inset -5px 0 grey;
 }
 /*# sourceMappingURL=App.css.map */

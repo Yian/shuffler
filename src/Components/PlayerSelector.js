@@ -1,11 +1,20 @@
 import React from "react";
 
-export const PlayerSelector = (props) => {
+export const PlayerSelector = props => {
   return (
-    <ul className="player-selector">
-        {[2,3,4,5].map((index) => (
-            <li className={ props.playerCount  === index ? "selected" : ""} onClick={() => props.setPlayerCount(index)}>{index}</li>
-        ))}
-    </ul>
+    <div className="player-selector">
+      <div className={"player-text"}>Players:</div>
+      {props.players.map(index => (
+        <div
+          key={index}
+          className={`player-item ${
+            props.playerCount === index ? "selected" : ""
+          } ${!props.isTitans && index === 6 ? "disabled" : ""}`}
+          onClick={() => props.setPlayerCount(index)}
+        >
+          {index}
+        </div>
+      ))}
+    </div>
   );
 };
