@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/shuffler/static/css/main.0af45f22.chunk.css",
+    "main.js": "/shuffler/static/js/main.2973c393.chunk.js",
+    "main.js.map": "/shuffler/static/js/main.2973c393.chunk.js.map",
+    "runtime~main.js": "/shuffler/static/js/runtime~main.eec3e2ea.js",
+    "runtime~main.js.map": "/shuffler/static/js/runtime~main.eec3e2ea.js.map",
+    "static/js/2.598a9db1.chunk.js": "/shuffler/static/js/2.598a9db1.chunk.js",
+    "static/js/2.598a9db1.chunk.js.map": "/shuffler/static/js/2.598a9db1.chunk.js.map",
+    "index.html": "/shuffler/index.html",
+    "precache-manifest.b3600b9bf720847085049b822c37aff5.js": "/shuffler/precache-manifest.b3600b9bf720847085049b822c37aff5.js",
+    "service-worker.js": "/shuffler/service-worker.js",
+    "static/css/main.0af45f22.chunk.css.map": "/shuffler/static/css/main.0af45f22.chunk.css.map",
+    "static/media/App.css": "/shuffler/static/media/DALEK.a6fedafc.ttf",
+    "static/media/logo.svg": "/shuffler/static/media/logo.5d5d9eef.svg"
+  }
+}
