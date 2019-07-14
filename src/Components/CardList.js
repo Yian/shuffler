@@ -109,33 +109,35 @@ export const CardList = props => {
   };
 
   const bind = useGesture(({ args: [originalIndex], down, delta: [, y] }) => {
-    const curIndex = ordering.indexOf(originalIndex);
-    const curRow = clamp(
-      Math.round((curIndex * tileSpacing + y) / tileSpacing),
-      0,
-      tiles.length - 1
-    );
-    const newOrder = swap(ordering, curIndex, curRow);
-    setSprings(
-      fn(
-        newOrder,
-        tiles,
-        lastPlayerIndex,
-        heightCalculated,
-        down,
-        originalIndex,
-        curIndex,
-        y,
-        props.playerCount
-      )
-    ); // Feed springs new style data, they'll animate the view without causing a single render
-    if (!down) {
-      props.setOrdering(newOrder);
-      props.addToHistory({
-        cycle: props.cycleCount,
-        order: newOrder,
-        wasShuffled: true
-      });
+    if (round <= 0) {
+      const curIndex = ordering.indexOf(originalIndex);
+      const curRow = clamp(
+        Math.round((curIndex * tileSpacing + y) / tileSpacing),
+        0,
+        tiles.length - 1
+      );
+      const newOrder = swap(ordering, curIndex, curRow);
+      setSprings(
+        fn(
+          newOrder,
+          tiles,
+          lastPlayerIndex,
+          heightCalculated,
+          down,
+          originalIndex,
+          curIndex,
+          y,
+          props.playerCount
+        )
+      ); // Feed springs new style data, they'll animate the view without causing a single render
+      if (!down) {
+        props.setOrdering(newOrder);
+        props.addToHistory({
+          cycle: props.cycleCount,
+          order: newOrder,
+          wasShuffled: true
+        });
+      }
     }
   });
 

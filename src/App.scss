@@ -1,8 +1,11 @@
+html {
+  overscroll-behavior: contain;
+}
+
 body, #root {
   background: #282c34;
   font-family: "Dalek";
   overflow-y: overlay;
-  overscroll-behavior: contain;
 }
 
 //disable scroll
