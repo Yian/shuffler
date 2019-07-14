@@ -209,9 +209,9 @@ export class AppContainer extends React.Component {
     if (this.state.screenMode === 1) {
       return (
         <ul className="start">
-          <li onClick={this.start}>S</li>
+          <li onClick={this.start}>Start</li>
           <li onClick={this.options} className="btnOpt">
-            O
+            Options
           </li>
         </ul>
       );
