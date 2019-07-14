@@ -35,7 +35,7 @@ export class HadesCounter extends React.Component {
         <animated.img
           className={"hades"}
           draggable="false"
-          src={process.env.PUBLIC_URL + "hades.jpg"}
+          src={process.env.PUBLIC_URL + "/hades.jpg"}
           style={this.props.hades}
         />
       </div>

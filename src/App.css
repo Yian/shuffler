@@ -4,6 +4,10 @@ body {
   overflow-y: overlay;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 @font-face {
   font-family: "Dalek";
   src: url("DALEK.ttf") format("truetype");
@@ -137,7 +141,7 @@ body {
 
 .favors {
   position: absolute;
-  width: 400px;
+  width: 450px;
   max-width: 80%;
   height: auto;
 }
@@ -352,7 +356,7 @@ body {
   font-size: 1.5rem;
   text-align: center;
   border-radius: 10%;
-  -webkit-box-shadow: inset 0 5px grey, inset 0 -5px grey, inset 5px 0 grey, inset -5px 0 grey;
-          box-shadow: inset 0 5px grey, inset 0 -5px grey, inset 5px 0 grey, inset -5px 0 grey;
+  -webkit-box-shadow: inset 0 5px grey, inset 0 -5px grey, inset 5px 0 grey, inset -5px 0 grey;
+          box-shadow: inset 0 5px grey, inset 0 -5px grey, inset 5px 0 grey, inset -5px 0 grey;
 }
 /*# sourceMappingURL=App.css.map */

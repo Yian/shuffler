@@ -4,6 +4,10 @@ body {
   overflow-y: overlay;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 @font-face {
   font-family: "Dalek";
   src: url("DALEK.ttf") format("truetype");
@@ -106,7 +110,7 @@ body {
 
 .favors {
   position: absolute;
-  width: 400px;
+  width: 450px;
   max-width: 80%;
   height: auto;
 }

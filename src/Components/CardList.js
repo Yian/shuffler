@@ -25,8 +25,8 @@ const fn = (
   var result = {};
   var randomZ = Math.floor(Math.random() * 11) - 5;
   const tile = tiles[index];
-  const imageUrl = process.env.PUBLIC_URL + tile.name + ".png";
-  const blankImageUrl = process.env.PUBLIC_URL + "blank.png";
+  const imageUrl = process.env.PUBLIC_URL + "/" + tile.name + ".png";
+  const blankImageUrl = process.env.PUBLIC_URL + "/" + "blank.png";
 
   down && index === originalIndex
     ? (result = {
@@ -333,7 +333,7 @@ export const CardList = props => {
           className={`active-text ${rollDisabled ? "disabled" : ""}`}
           onClick={shuffleTiles}
         >
-          Roll
+          Go
         </div>
       </div>
       {props.isHades && (
@@ -384,7 +384,7 @@ export const CardList = props => {
             <animated.img
               className={"favors"}
               draggable="false"
-              src={`${process.env.PUBLIC_URL}${props.name.value}.jpg`}
+              src={`${process.env.PUBLIC_URL}/${props.name.value}.jpg`}
               style={{
                 opacity: props.opacity,
                 transform: interpolate(
