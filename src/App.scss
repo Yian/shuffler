@@ -32,7 +32,7 @@ body::-webkit-scrollbar {
 }
 
 .add-margin {
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 768px) {
     margin-top: 10%;
   }
 }
@@ -213,6 +213,7 @@ body::-webkit-scrollbar {
 
 .active-text {
   cursor: pointer;
+  color: gold;
   font-size: 3rem;
 
   &.disabled {
@@ -230,13 +231,35 @@ body::-webkit-scrollbar {
 }
 
 .start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
   list-style: none;
   font-size: 5rem;
   padding: 0;
 
+  .img {
+    width: 100%;
+    height: 100%;
+    background-image: url("/background.jpg");
+    position: absolute;
+    background-size: contain;
+    z-index: 1;
+    opacity: 0.5;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
   li {
     cursor: pointer;
+    z-index: 2;
+    color: gold;
   }
 }
 

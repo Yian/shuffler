@@ -167,6 +167,7 @@ export class AppContainer extends React.Component {
       screenMode: 2,
       hadesTotal: 0,
       hadesActive: false,
+      cycleCount: 0,
     });
   };
 
@@ -209,6 +210,7 @@ export class AppContainer extends React.Component {
     if (this.state.screenMode === 1) {
       return (
         <ul className="start">
+        <div className="img"/>
           <li onClick={this.start}>Start</li>
           <li onClick={this.options} className="btnOpt">
             Options

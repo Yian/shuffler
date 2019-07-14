@@ -333,7 +333,7 @@ export const CardList = props => {
           className={`active-text ${rollDisabled ? "disabled" : ""}`}
           onClick={shuffleTiles}
         >
-          Go
+          Cycle: {props.cycleCount}
         </div>
       </div>
       {props.isHades && (
