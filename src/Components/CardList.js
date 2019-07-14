@@ -324,7 +324,7 @@ export const CardList = props => {
   ]);
 
   return (
-    <div className={`cardlist-container`}>
+    <div className={`cardlist-container ${props.isHades == false ? "add-margin" : ""}` }>
       <div className={"top-container"}>
         <div className={"active-text"} onClick={props.back}>
           Back

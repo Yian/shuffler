@@ -1,9 +1,33 @@
-body {
+body, #root {
   background: #282c34;
   font-family: "Dalek";
   overflow-y: overlay;
+  /* Break the flow */
+  position: absolute;
+  top: 0px;
+
+  /* Give them all the available space */
+  width: 100%;
+  height: 100%;
+
+  /* Remove the margins if any */
+  margin: 0;
+
+  /* Allow them to scroll down the document */
+  overflow-y: hidden;
 }
 
+body {
+  /* Sending body at the bottom of the stack */
+  z-index: 1;
+}
+
+#root {
+  /* Making the wrapper stack above the body */
+  z-index: 2;
+}
+
+//disable scroll
 body::-webkit-scrollbar {
   display: none;
 }
@@ -27,6 +51,10 @@ body::-webkit-scrollbar {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.add-margin {
+  margin-top: 10%;
 }
 
 .app-container {
