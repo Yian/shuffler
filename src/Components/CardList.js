@@ -58,6 +58,7 @@ const fn = (
 const fn2 = favorTiles => index => {
   return {
     opacity: favorTiles[index].used ? 0 : 1,
+    y: 0,
     x: favorTiles[index].used ? 100 : 0,
     name: favorTiles[index].name
   };
@@ -390,8 +391,8 @@ export const CardList = props => {
               style={{
                 opacity: props.opacity,
                 transform: interpolate(
-                  [props.x],
-                  x=> `translate3d(${x}px,0px,0)`
+                  [props.x, props.y],
+                  (x, y)=> `translate3d(${x}px,${y}px,0)`
                 )
               }}
             />

@@ -5,7 +5,6 @@ html {
 body, #root {
   background: #282c34;
   font-family: "Dalek";
-  overflow: auto;
   overscroll-behavior: contain;
 }
 
@@ -59,12 +58,6 @@ body::-webkit-scrollbar {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -77,7 +70,6 @@ body::-webkit-scrollbar {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
   width: 100%;
 }
 
@@ -235,6 +227,7 @@ body::-webkit-scrollbar {
 }
 
 .options {
+  margin: auto auto;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
