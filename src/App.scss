@@ -2,9 +2,6 @@ body, #root {
   background: #282c34;
   font-family: "Dalek";
   overflow-y: overlay;
-  /* Break the flow */
-  position: absolute;
-  overscroll-behavior: contain;
 }
 
 //disable scroll
