@@ -263,6 +263,11 @@ body::-webkit-scrollbar {
   cursor: pointer;
 }
 
+.options .checkbox-container .checkbox-item.disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
 .options .checkbox-container input[type="checkbox"] {
   width: 45px;
   height: 45px;

@@ -17,7 +17,7 @@ const defaultFavorTiles = [
   { name: "hephaistos", used: false },
   { name: "hermes", used: false },
   { name: "hera", used: false },
-  { name: "hestia", used: false }
+  { name: "hestia", used: false },
 ];
 
 const defaultGodTiles = [
@@ -47,10 +47,12 @@ export class AppContainer extends React.Component {
       isTitans: false,
       isHades: false,
       isFavors: false,
+      isHecate: false,
       hadesActive: false,
       hadesTotal: 0,
       lastPlayerIndex: 4,
       favorTiles: shuffle(defaultFavorTiles),
+      defaultFavorTiles,
       tiles: defaultGodTiles,
       ordering: initialGodOrdering,
       dice1: 1,
@@ -64,6 +66,16 @@ export class AppContainer extends React.Component {
       ]
     };
   }
+
+  componentDidMount() {
+    defaultGodTiles.forEach((picture) => {
+        const img = new Image();
+        img.src = process.env.PUBLIC_URL + "/" + picture + ".png";
+    });
+
+    const img = new Image();
+    img.src = process.env.PUBLIC_URL + "/" + "blank.png";
+}
 
   incrementCycleCount = () => {
     this.setState({
@@ -136,6 +148,20 @@ export class AppContainer extends React.Component {
     });
   };
 
+  setIsHecate = isHecate => {
+    var favorTiles = defaultFavorTiles;
+
+    if (isHecate) {
+      favorTiles = [...defaultFavorTiles, { name: "hecate", used: false }]
+    }
+
+    this.setState({
+      defaultFavorTiles: favorTiles,
+      favorTiles: shuffle(favorTiles),
+      isHecate,
+    });
+  };
+
   setIsHades = isHades => {
     this.setState({
       isHades
@@ -195,6 +221,12 @@ export class AppContainer extends React.Component {
     );
   };
 
+  onChangeHecate = e => {
+    this.setIsHecate(
+      e.target.type === "checkbox" ? e.target.checked : e.target.value
+    );
+  };
+
   onChangeTitans = e => {
     this.setIsTitans(
       e.target.type === "checkbox" ? e.target.checked : e.target.value
@@ -210,7 +242,7 @@ export class AppContainer extends React.Component {
     if (this.state.screenMode === 1) {
       return (
         <ul className="start">
-        <div className="img"/>
+          <div className="img" />
           <li onClick={this.start}>Start</li>
           <li onClick={this.options} className="btnOpt">
             Options
@@ -239,7 +271,7 @@ export class AppContainer extends React.Component {
           hadesActive={this.state.hadesActive}
           setFavorTiles={this.setFavorTiles}
           favorTiles={this.state.favorTiles}
-          defaultFavorTiles={defaultFavorTiles}
+          defaultFavorTiles={this.state.defaultFavorTiles}
           dice1={this.state.dice1}
           dice2={this.state.dice2}
         />
@@ -271,6 +303,12 @@ export class AppContainer extends React.Component {
               label="Favors"
               checked={this.state.isFavors}
               onChange={this.onChangeFavors}
+            />
+            <Checkbox
+              label="Hecate"
+              checked={this.state.isHecate}
+              onChange={this.onChangeHecate}
+              className={!this.state.isFavors && "disabled"}
             />
           </div>
         </div>
