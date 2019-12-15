@@ -152,7 +152,7 @@ export const CardList = props => {
       }px,0px,0px)`
     });
 
-    if (hadesRoll > 9) {
+    if (hadesRoll >= 9) {
       setTimeout(() => {
         setHades({
           opacity: 1,
@@ -218,7 +218,7 @@ export const CardList = props => {
 
     props.incrementCycle();
 
-    if (props.isFavors) {
+    if (props.isFavors && props.cycleCount > 0) {
       cycleFavors();
     }
 
@@ -382,7 +382,7 @@ export const CardList = props => {
         )}
       </div>
       <div className="favor-container">
-        {props.isFavors && !props.hadesActive &&
+        {props.isFavors && !props.hadesActive && props.cycleCount > 0 && 
           favorSprings.map(props => (
             <animated.img
               className={"favors"}

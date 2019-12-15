@@ -9,7 +9,7 @@ const players = [3, 4, 5, 6];
 const initialTitansOrdering = [0, 1, 2, 3, 4];
 const diceValues = [0, 1, 1, 2, 2, 3];
 
-const defaultFavorTiles = [
+const defaultFavorTiles = shuffle([
   { name: "aphrodite", used: false },
   { name: "artemis", used: false },
   { name: "demeter", used: false },
@@ -18,7 +18,7 @@ const defaultFavorTiles = [
   { name: "hermes", used: false },
   { name: "hera", used: false },
   { name: "hestia", used: false },
-];
+]);
 
 const defaultGodTiles = [
   { name: "ares" },
