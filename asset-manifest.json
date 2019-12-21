@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/shuffler/static/css/main.79cfa27a.chunk.css",
-    "main.js": "/shuffler/static/js/main.ac0524a9.chunk.js",
-    "main.js.map": "/shuffler/static/js/main.ac0524a9.chunk.js.map",
+    "main.css": "/shuffler/static/css/main.7cd9cbcf.chunk.css",
+    "main.js": "/shuffler/static/js/main.98a4e2f5.chunk.js",
+    "main.js.map": "/shuffler/static/js/main.98a4e2f5.chunk.js.map",
     "runtime~main.js": "/shuffler/static/js/runtime~main.eec3e2ea.js",
     "runtime~main.js.map": "/shuffler/static/js/runtime~main.eec3e2ea.js.map",
     "static/js/2.d1021277.chunk.js": "/shuffler/static/js/2.d1021277.chunk.js",
     "static/js/2.d1021277.chunk.js.map": "/shuffler/static/js/2.d1021277.chunk.js.map",
     "index.html": "/shuffler/index.html",
-    "precache-manifest.c5342ca1520dc1e2443f026f169dfba3.js": "/shuffler/precache-manifest.c5342ca1520dc1e2443f026f169dfba3.js",
+    "precache-manifest.ad9d053465c53544d213d94b6c180ba5.js": "/shuffler/precache-manifest.ad9d053465c53544d213d94b6c180ba5.js",
     "service-worker.js": "/shuffler/service-worker.js",
-    "static/css/main.79cfa27a.chunk.css.map": "/shuffler/static/css/main.79cfa27a.chunk.css.map",
+    "static/css/main.7cd9cbcf.chunk.css.map": "/shuffler/static/css/main.7cd9cbcf.chunk.css.map",
     "static/media/App.css": "/shuffler/static/media/DALEK.a6fedafc.ttf",
     "static/media/logo.svg": "/shuffler/static/media/logo.5d5d9eef.svg"
   }
