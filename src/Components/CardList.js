@@ -142,8 +142,18 @@ export const CardList = props => {
     }
   });
 
-  const rollHades = () => {
-    var hadesRoll = props.rollForHades();
+  const rollHades = (no) => {
+    if (no === 0) {
+      setHadesCounter({
+        transform: `translate3d(${
+          no
+        }px,0px,0px)`
+      });
+      return;
+    }
+    
+    var hadesRoll = no|| props.rollForHades();
+
     setHadesCounter({
       transform: `translate3d(${
         hadesRoll === 0
@@ -347,6 +357,10 @@ export const CardList = props => {
           getNumberWidth={size => setThreatNumberWidth(size)}
           hades={hades}
           hadesCounter={hadesCounter}
+          hadesNumberClicked={no => {
+            props.setHades(no);
+            rollHades(no);
+          }}
         />
       )}
       <div

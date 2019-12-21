@@ -227,6 +227,10 @@ body::-webkit-scrollbar {
   margin: 0;
 }
 
+.numbers li {
+  cursor: pointer;
+}
+
 .options {
   margin: auto auto;
   -webkit-box-orient: vertical;

@@ -126,6 +126,12 @@ export class AppContainer extends React.Component {
     });
   };
 
+  setHades = (total) => {
+    this.setState({
+      hadesTotal: total
+    });
+  };
+
   rollForHades = () => {
     var diceMax = diceValues.length;
     var dice1 = shuffle(diceValues)[Math.floor(Math.random() * diceMax)];
@@ -259,6 +265,7 @@ export class AppContainer extends React.Component {
           rollForHades={this.rollForHades}
           setHadesActive={this.setHadesActive}
           resetHades={this.resetHades}
+          setHades={this.setHades}
           back={this.back}
           lastPlayerIndex={this.state.lastPlayerIndex}
           cycleCount={this.state.cycleCount}

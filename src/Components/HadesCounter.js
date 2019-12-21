@@ -28,7 +28,7 @@ export class HadesCounter extends React.Component {
           />
           <ul className="numbers">
             {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(no => (
-              <li ref={this.refNumberWdithSize}>{no}</li>
+              <li ref={this.refNumberWdithSize} onClick={() => this.props.hadesNumberClicked(no)}>{no}</li>
             ))}
           </ul>
         </div>
