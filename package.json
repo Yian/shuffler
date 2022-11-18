@@ -21,7 +21,7 @@
     "react-color": "^2.17.3",
     "react-dice": "^1.0.1",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-spring": "^8.0.20",
     "react-use-gesture": "5.0.0"
   },
