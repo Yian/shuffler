@@ -105,7 +105,6 @@ body::-webkit-scrollbar {
   display: block;
   top: 0;
   opacity: 0;
-  pointer-events: none;
   width: 700px;
   max-width: 100%;
   overflow: visible;
@@ -115,6 +114,7 @@ body::-webkit-scrollbar {
   height: auto;
   border: 1px solid black;
   cursor: pointer;
+  z-index: 999;
 }
 
 .favors {

@@ -1,40 +1,32 @@
 {
   "name": "shuffler",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "homepage": "https://yian.github.io/shuffler",
-  "dependencies": {
-    "@babel/helper-builder-react-jsx": "^7.16.7",
-    "lodash-es": "4.17.11",
-    "lodash-move": "^1.1.1",
-    "lodash.clamp": "^4.0.3",
-    "lodash.filter": "^4.6.0",
-    "lodash.find": "^4.6.0",
-    "lodash.findlastindex": "^4.6.0",
-    "lodash.last": "^3.0.0",
-    "lodash.range": "^3.2.0",
-    "lodash.remove": "^4.7.0",
-    "lodash.shuffle": "^4.2.0",
-    "lodash.slice": "^4.2.0",
-    "range": "^0.0.3",
-    "react": "^16.8.6",
-    "react-color": "^2.17.3",
-    "react-dice": "^1.0.1",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
-    "react-spring": "^8.0.20",
-    "react-use-gesture": "5.0.0"
-  },
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "dependencies": {
+    "@react-spring/web": "^9.7.3",
+    "@use-gesture/react": "^10.3.1",
+    "lodash": "^4.17.21",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.13",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react-swc": "^3.7.2",
+    "gh-pages": "^6.2.0",
+    "sass": "^1.83.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
   },
   "browserslist": {
     "production": [
@@ -47,9 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-deploy": "^0.2.3",
-    "gh-pages": "^2.0.1"
   }
 }
