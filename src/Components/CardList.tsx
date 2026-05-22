@@ -3,10 +3,10 @@ import { useSprings, useSpring, animated, to, type SpringValues } from "@react-s
 import { useDrag } from "@use-gesture/react";
 import clamp from "lodash/clamp";
 import shuffle from "lodash/shuffle";
-import last from "lodash/last";
 import findLastIndex from "lodash/findLastIndex";
 import { HadesCounter } from "./HadesCounter";
 import type { GodTile, FavorTile, ShuffleHistoryEntry } from "./AppContainer";
+import { computeNewOrder } from "../utils/shuffleLogic";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -241,58 +241,6 @@ export function CardList(props: CardListProps) {
 
   // ── Shuffle logic ─────────────────────────────────────────────────────────
 
-  const computeNewOrder = useCallback(
-    (current: number[]): { order: number[]; wasShuffled: boolean } => {
-      const lastRoll = last(props.shuffleHistory)!;
-      const lastOrder = lastRoll.order;
-
-      if (!props.isTitans) {
-        if (playerCount === 5) return { order: shuffle(current), wasShuffled: true };
-        if (playerCount === 4 || playerCount === 2) {
-          const lastGod = last(lastOrder)!;
-          const rest = shuffle(current.slice(0, tiles.length - 1));
-          return { order: [lastGod, ...rest], wasShuffled: true };
-        }
-        if (playerCount === 3) {
-          if (lastRoll.wasShuffled) {
-            return {
-              order: [...lastOrder.slice(2, 4), ...lastOrder.slice(0, 2)],
-              wasShuffled: false,
-            };
-          }
-          return { order: shuffle(current), wasShuffled: true };
-        }
-      } else {
-        // Titans expansion
-        if (playerCount === 6) return { order: shuffle(current), wasShuffled: true };
-        if (playerCount === 5) {
-          const lastGod = last(lastOrder)!;
-          const rest = shuffle(current.slice(0, tiles.length - 1));
-          return { order: [lastGod, ...rest], wasShuffled: true };
-        }
-        if (playerCount === 4) {
-          if (lastRoll.wasShuffled) {
-            return {
-              order: [...lastOrder.slice(3, 5), ...shuffle(lastOrder.slice(0, 3))],
-              wasShuffled: false,
-            };
-          }
-          return { order: shuffle(current), wasShuffled: true };
-        }
-        if (playerCount === 3) {
-          const shuffledLast3 = shuffle(lastOrder.slice(2, 5));
-          return {
-            order: [...shuffledLast3.slice(0, 2), ...lastOrder.slice(0, 2), last(shuffledLast3)!],
-            wasShuffled: true,
-          };
-        }
-      }
-
-      return { order: shuffle(current), wasShuffled: true };
-    },
-    [props.shuffleHistory, props.isTitans, playerCount, tiles.length]
-  );
-
   const shuffleTiles = useCallback(() => {
     setRound((r) => r + 1);
     setRollDisabled(true);
@@ -301,7 +249,13 @@ export function CardList(props: CardListProps) {
 
     if (props.isFavors && props.cycleCount > 0) cycleFavors();
 
-    const { order: newOrder, wasShuffled } = computeNewOrder(ordering);
+    const { order: newOrder, wasShuffled } = computeNewOrder(
+      ordering,
+      props.shuffleHistory,
+      props.isTitans,
+      playerCount,
+      tiles.length
+    );
     props.addToHistory({ cycle: props.cycleCount, order: newOrder, wasShuffled });
     props.setOrdering(newOrder);
 
